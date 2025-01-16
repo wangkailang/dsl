@@ -35,5 +35,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# antr dist
-src/antlr/dist
+# antr
+# src/antlr/dist
+src/antlr/.antlr

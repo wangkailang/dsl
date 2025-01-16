@@ -1,28 +1,29 @@
-grammar formula;
+grammar formula ;
 
 @header {
-    package antlr;
+/* eslint-disable */
 }
 
 prog: expr+ ;
 
-expr: FUNCNAME '(' args? ')'      # Function
-    | expr op=('*'|'/') expr      # MulDiv
-    | expr op=('+'|'-') expr      # AddSub
-    | NUMBER # Number
-    | CELL # Cell
-    | STRING # String
-    | BOOLEAN # Boolean
-    | ERROR # Error
+expr: FUNCNAME '(' args? ')'         # funcCall
+    | expr op=('*'|'/') expr         # MulDiv
+    | expr op=('+'|'-') expr         # AddSub
+    | NUM                            # number
+    | FIELD                          # field
+    | '(' expr ')'                   # parents
     ;
 
 args: expr (',' expr)* ;
 
+
+NUM : ('-')?[0-9]+('.' [0-9]+)? ;
+FIELD: '#'.*?'$' ;
 FUNCNAME: [a-zA-Z]+ ;
-NUMBER: [0-9]+ ('.' [0-9]+)? ;
-CELL: '$'? [a-zA-Z]+ '$'? [0-9]+ ;
-STRING: '"' .*? '"' ;
-BOOLEAN: 'TRUE' | 'FALSE' ;
-ERROR: '#' [a-zA-Z]+ ;
+WS  : [ \t]+ -> skip ;
 
 
+MUL : '*' ;
+DIV : '/' ;
+ADD : '+' ;
+SUB : '-' ;

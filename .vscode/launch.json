@@ -9,9 +9,9 @@
       "type": "antlr-debug",
       "request": "launch",
       "input": "src/antlr/input.txt",
-      "grammar": "src/antlr/ECMAScript.g4",
+      "grammar": "src/antlr/formula.g4",
       "printParseTree": true,
-      "visualParseTree": true
+      "visualParseTree": true,
     },
     {
       "type": "bun",

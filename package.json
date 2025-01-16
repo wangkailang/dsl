@@ -8,10 +8,13 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "antlr4": "antlr4ts -visitor -no-listener -Dlanguage=Typescript src/antlr/formula.g4 -o src/antlr/dist"
+    "log": "cd src/antlr && antlr4ts -visitor -no-listener -Dlanguage=Typescript formula.g4 -o ./dist -Xlog",
+    "antlr4": "cd src/antlr && antlr4ts -visitor -no-listener -Dlanguage=Typescript formula.g4 -o ./dist"
   },
   "dependencies": {
+    "antlr4": "^4.13.2",
     "antlr4ts": "0.5.0-alpha.4",
+    "decimal.js": "^10.4.3",
     "ohm-js": "^17.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
